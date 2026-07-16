@@ -14,24 +14,40 @@ double toCommutes(double gasDollars) {
   double gasMiles;
   double numCommutes;
 
+  //Converts dollars to gallons of gas
   gasGallons = gasDollars / DOLLARS_PER_GALLON;
+
+  //Converts gallons to miles
   gasMiles = gasGallons * MILES_PER_GALLON;
 
-  numCommutes = gasMiles; // TODO: That math is not right! Something is missing here...
+  //Convert miles to commutes
+  numCommutes = gasMiles / MILES_PER_COMMUTE; // TODO: That math is not right! Something is missing here...
 
   return numCommutes;
 }
 
 // TODO!
 // Converts number of commutes into gas cost
-/*
-double toDollars(double commutes) {
-  ....
+double toDollars(double commutes)
+{
+  double totalMiles;
+  double totalGallons;
+  double totalCost;
+
+  //Convert commutes to miles
+  totalMiles = commutes * MILES_PER_COMMUTE;
+
+  //Convert miles to gallons
+  totalGallons = totalMiles / MILES_PER_GALLON;
+
+  //Convert gallons to dollars
+  totalCost = totalGallons * DOLLARS_PER_GALLON;
+
   return totalCost;
 }
-*/
 
-int main() {
+int main() 
+{
 
   cout << "$20 will buy you: " << toCommutes(20) << " commutes." << endl;
   cout << "$100.50 will buy you: " << toCommutes(100.50) << " commutes." << endl;
@@ -47,4 +63,6 @@ int main() {
   cout << myCommutes << " commutes will cost you $" << myCost << endl;
 
   cout << "All done!" << endl;
+
+  return 0;
 }
